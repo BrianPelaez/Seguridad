@@ -5,5 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import ar.utn.frba.sceu.sesion.Models.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
+	
+	Usuario findByUsuario(String usuario);
 
 }

@@ -1,0 +1,138 @@
+Documentación API AppCurso
+
+------------------------------------------------------------------
+							Presentismo
+------------------------------------------------------------------
+
+#LISTAR TODOS
+api/presentismo
+
+	GET 
+	{
+		estado:
+		fecha:
+		id_alum:
+		{
+			nombre:
+			apellido:
+			dni:
+		}
+	}
+
+#LISTAR POR ID
+api/presentismo/{id}
+
+	GET 
+	{
+		estado:
+		fecha:
+		id_alum:
+		{
+			nombre:
+			apellido:
+			dni:
+		}
+	}
+	
+#TOMAR LISTA
+api/presentismo
+
+	POST
+	ENTRADA
+	{
+		estado:
+		fecha:
+		id_alum:
+	}
+	
+	SALIDA
+	{
+		estado:
+		fecha:
+		id_alum:
+		{
+			nombre:
+			apellido:
+			dni:
+		}
+	}
+------------------------------------------------------------------
+							Curso
+------------------------------------------------------------------
+
+#LISTAR TODOS
+api/curso
+
+	GET
+	{
+		asignacion:
+		id_alum:
+			{
+				nombre:
+				apellido:
+				dni:
+			}
+	}
+
+
+#LISTAR X ID
+api/curso/{id}
+
+	GET
+	{
+		asignacion:
+		id_alum:
+			{
+				nombre:
+				apellido:
+				dni:
+			}
+	}
+	
+#CREAR CURSO
+api/curso
+	
+	POST
+	
+	ENTRADA
+	{
+		"asignacion":
+		"borrado":
+	}
+	
+	SALIDA
+	{
+		"asignacion":
+		"borrado":
+	}
+	
+	
+#MODIFICAR CURSO
+api/curso/{id}
+
+	PUT
+	
+	ENTRADA
+	{
+		"asignacion":
+		"borrado":
+	}
+	
+	SALIDA
+	{
+		"asignacion":
+		"borrado":
+	}
+
+#BORRAR CURSO
+api/curso/{id}
+
+	DELETE
+	
+	"OK"
+
+------------------------------------------------------------------
+							Alumno
+------------------------------------------------------------------
+
+

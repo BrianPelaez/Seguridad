@@ -1,12 +1,14 @@
 package ar.utn.frba.sceu.sesion.Controllers;
 
-import javax.servlet.http.HttpSession;
-
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.xml.bind.DatatypeConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import ar.utn.frba.sceu.sesion.Models.Usuario;
 import ar.utn.frba.sceu.sesion.Repositories.UsuarioRepository;
 
 @RestController
@@ -14,16 +16,32 @@ import ar.utn.frba.sceu.sesion.Repositories.UsuarioRepository;
 public class UsuarioController {
 	
 	@Autowired
-	UsuarioRepository usuarioRepository;
+	private UsuarioRepository usuarioRepository;
 	
-	@GetMapping("/usuario")
-	public Integer comprobar(HttpSession session) {
+	@PostMapping("/usuario")
+	public Usuario guardarUsuario(@RequestBody Usuario usuario) throws NoSuchAlgorithmException {
 		
-		if (session.getAttribute("usuario_id") == null) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sesion no iniciada");
-		}
+		Iterable<Usuario> usuarios = usuarioRepository.findAll();
 		
-		return (Integer)session.getAttribute("usuario_id");
+		//HASH CLAVE
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		md.update(usuario.getClave().getBytes());
+		byte[] digest = md.digest();
+		String myHash = DatatypeConverter.printHexBinary(digest).toUpperCase();
+		//FIN HASH CLAVE
+		
+		//SE CHEQUEA SI EL USUARIO EXISTE
+		usuarios.forEach(x -> {
+			
+			if (x.getUsuario().equals(usuario.getUsuario())) {
+				throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Usuario ya existe");
+			}
+			
+		});
+		
+		usuario.setClave(myHash);
+		usuarioRepository.save(usuario);
+		return usuario;
 	}
 
 }
