@@ -4,7 +4,7 @@ Documentación API AppCurso
 							Presentismo
 ------------------------------------------------------------------
 
-#LISTAR TODOS
+###		LISTAR TODOS		###
 api/presentismo
 
 	GET 
@@ -19,7 +19,7 @@ api/presentismo
 		}
 	}
 
-#LISTAR POR ID
+###		LISTAR POR ID		###
 api/presentismo/{id}
 
 	GET 
@@ -34,7 +34,7 @@ api/presentismo/{id}
 		}
 	}
 	
-#TOMAR LISTA
+###		TOMAR LISTA		###
 api/presentismo
 
 	POST
@@ -60,7 +60,7 @@ api/presentismo
 							Curso
 ------------------------------------------------------------------
 
-#LISTAR TODOS
+###		LISTAR TODOS		###
 api/curso
 
 	GET
@@ -75,7 +75,7 @@ api/curso
 	}
 
 
-#LISTAR X ID
+###		LISTAR X ID		###
 api/curso/{id}
 
 	GET
@@ -89,7 +89,7 @@ api/curso/{id}
 			}
 	}
 	
-#CREAR CURSO
+### 	CREAR CURSO 	 ###
 api/curso
 	
 	POST
@@ -107,7 +107,7 @@ api/curso
 	}
 	
 	
-#MODIFICAR CURSO
+###		MODIFICAR CURSO		###
 api/curso/{id}
 
 	PUT
@@ -124,7 +124,7 @@ api/curso/{id}
 		"borrado":
 	}
 
-#BORRAR CURSO
+###		BORRAR CURSO		###
 api/curso/{id}
 
 	DELETE
@@ -135,4 +135,67 @@ api/curso/{id}
 							Alumno
 ------------------------------------------------------------------
 
+###		LISTAR TODOS		###
+api/alumnos
 
+	GET 
+	{
+		nombre:
+		apellido:
+		dni:
+	}
+
+###		#LISTAR POR ID		###
+api/alumno/{id}
+
+	GET 
+	{
+		nombre:
+		apellido:
+		dni:
+	}
+	
+###		CREAR ALUMNO		###
+api/alumno
+
+	POST
+	ENTRADA
+	{
+		nombre:
+		apellido:
+		dni:
+		borrado:
+	}
+	
+	SALIDA
+	{
+		nombre:
+		apellido:
+		dni:
+	}
+	
+###		MODIFICAR ALUMNO	###
+api/alumno/{id}
+
+	POST
+	ENTRADA
+	{
+		nombre:
+		apellido:
+		dni:
+		borrado:
+	}
+	
+	SALIDA
+	{
+		nombre:
+		apellido:
+		dni:
+	}
+	
+###		BORRAR ALUMNO		###
+api/alumno/{id}
+
+	DELETE
+	
+	"OK"
