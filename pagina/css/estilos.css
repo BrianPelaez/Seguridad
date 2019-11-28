@@ -1,0 +1,21 @@
+header{
+	background:#2c3e50;
+	color:fff;
+}
+
+.main{
+	background: aqua;
+	color:black;
+	font-size: 25px;
+}
+
+.color1{
+	background: #2c3e50;
+	color:aliceblue;
+}
+
+footer{
+	background: midnightblue;
+	color:orangered;
+	font-size: 35px;
+}
